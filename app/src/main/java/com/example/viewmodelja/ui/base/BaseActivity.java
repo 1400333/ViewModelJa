@@ -19,7 +19,7 @@ import com.example.viewmodelja.util.LogUtil;
 
 import java.util.ArrayList;
 
-public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener{
+public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
     private static ArrayList<BaseActivity> BASE_ACTIVITY_GROUP = new ArrayList<>();
     private static String m_strFinishUpTo = "";
     protected BaseActivityViewModel m_baseViewModel = null;
@@ -87,7 +87,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     /**
      * 建立ViewModel
      */
-    protected BaseActivityViewModel createViewModelByProvider(){
+    protected BaseActivityViewModel createViewModelByProvider() {
         return new ViewModelProvider(this, new ViewModelProvider.AndroidViewModelFactory(getApplication())).get(BaseActivityViewModel.class);
     }
 
@@ -97,15 +97,19 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     protected void observeViewModel() {
         m_baseViewModel.isManagerDataReady().observe(this,
                 bManagerReady -> {
-                    if (bManagerReady == true) {
-                        showProgress(false);
+                    if (bManagerReady != null) {
+                        if (bManagerReady) {
+                            showProgress(false);
 
-                        //Manager初始完成才能長畫面
-                        initLayout();
-                    } else {
-                        showProgress(true);
+                            //Manager初始完成才能長畫面
+                            initLayout();
+                        } else {
+                            showProgress(true);
+                        }
                     }
+
                 });
+        getLifecycle().addObserver(m_baseViewModel);
     }
 
     /**
@@ -114,7 +118,12 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     abstract protected void initLayout();
 
     protected boolean isManagerDataReady() {
-        return m_baseViewModel.isManagerDataReady().getValue();
+        Boolean bReady = m_baseViewModel.isManagerDataReady().getValue();
+
+        if (bReady == null) {
+            return false;
+        }
+        return true;
     }
 
     @Override
@@ -139,6 +148,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
             exitApp();
         } else {
             BaseFragment topFragment = null;
+            boolean bDoFinish = false;
 
             if (m_fragmentHelper != null) {
                 topFragment = m_fragmentHelper.getTopFragment();
@@ -150,9 +160,16 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
                 if (iFragmentCount > 1) {
                     m_fragmentHelper.popFragment();
                 } else {
-                    finish();
+                    bDoFinish = true;
                 }
             } else {
+                bDoFinish = true;
+            }
+
+            if (bDoFinish) {
+                if (MainActivity.class.isInstance(this) == true) {
+                    m_baseViewModel.setDoUninitManager(false);
+                }
                 finish();
             }
         }

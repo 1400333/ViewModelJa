@@ -17,13 +17,14 @@ import com.example.viewmodelja.api.ResponseData;
 import com.example.viewmodelja.common.SingleLiveEvent;
 import com.example.viewmodelja.util.LogUtil;
 
-abstract public class BaseViewModel extends AndroidViewModel  {
+abstract public class BaseViewModel extends AndroidViewModel implements DefaultLifecycleObserver {
     private RequestManager m_reqManager = null;
     private MutableLiveData<Boolean> m_bLoading = new MutableLiveData<>(); // 是否要顯示轉圈圈
     protected SingleLiveEvent<String> m_liveAlertMsg = new SingleLiveEvent<>();  //錯誤訊息
 
     private int m_iBlockingCount = 0;       //強制轉圈數
     private int m_iNonBlockingCount = 0;    //未強制轉圈數
+    protected Class<?> m_ownerClass = null;
 
     public BaseViewModel(@NonNull Application application) {
         super(application);
@@ -36,6 +37,12 @@ abstract public class BaseViewModel extends AndroidViewModel  {
 
         //初始參數
         m_liveAlertMsg.setValue(null);
+    }
+
+    @Override
+    public void onCreate(@NonNull LifecycleOwner owner) {
+        LogUtil.log("onCreate owner = "+owner.getClass().getSimpleName());
+        m_ownerClass = owner.getClass();
     }
 
     protected void postData(RequestData requestData, RequestManager.RequestCallback callback) {

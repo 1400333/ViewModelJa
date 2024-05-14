@@ -6,12 +6,16 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.viewmodelja.MainActivity;
 import com.example.viewmodelja.manager.CommonDataManager;
 import com.example.viewmodelja.manager.LoginManager;
 import com.example.viewmodelja.util.LogUtil;
 
-public class BaseActivityViewModel extends BaseViewModel{
+public class BaseActivityViewModel extends BaseViewModel {
     private MutableLiveData<Boolean> m_liveManagerDataReady = new MutableLiveData<>(); //manager是否都初始完成
+
+    protected boolean m_bUninitManager = true;
+
     public BaseActivityViewModel(@NonNull Application application) {
         super(application);
 
@@ -19,7 +23,7 @@ public class BaseActivityViewModel extends BaseViewModel{
     }
 
     private void initModel() {
-        m_liveManagerDataReady.setValue(false);
+        m_liveManagerDataReady.setValue(null);
         //開始判斷Manager是否初始完成
         monitorManagerData();
     }
@@ -28,7 +32,17 @@ public class BaseActivityViewModel extends BaseViewModel{
     protected void onCleared() {
         super.onCleared();
 
-        uninitManager();
+        if (m_ownerClass != null && m_ownerClass.getSimpleName().compareToIgnoreCase(MainActivity.class.getSimpleName()) == 0){
+            if (m_bUninitManager) {
+                uninitManager();
+            } else {
+                m_bUninitManager = true;
+            }
+        }
+    }
+
+    public void setDoUninitManager(boolean bUninitManager) {
+        m_bUninitManager = bUninitManager;
     }
 
     public void uninitManager() {

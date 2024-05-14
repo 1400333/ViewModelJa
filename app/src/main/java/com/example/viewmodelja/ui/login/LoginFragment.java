@@ -71,5 +71,6 @@ public class LoginFragment extends BaseFragment {
                         });
                     }
                 });
+        getViewLifecycleOwner().getLifecycle().addObserver(m_viewModel);
     }
 }

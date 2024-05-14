@@ -57,6 +57,7 @@ public class CountryFragment extends BaseFragment {
                         m_binding.tvSelItem.setText(strSelItem);
                     }
                 });
+        getViewLifecycleOwner().getLifecycle().addObserver(m_viewModel);
     }
 
     @Override
