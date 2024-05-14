@@ -13,7 +13,6 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.viewmodelja.R;
 import com.example.viewmodelja.databinding.FragmentCountryBinding;
 import com.example.viewmodelja.ui.base.BaseFragment;
-import com.example.viewmodelja.util.AlertDialogUtil;
 import com.example.viewmodelja.util.InjectorUtils;
 
 public class CountryFragment extends BaseFragment {
@@ -42,10 +41,11 @@ public class CountryFragment extends BaseFragment {
     }
 
     private void initViewModel() {
+        //初始時傳參數
         m_viewModel = new ViewModelProvider(requireActivity(), InjectorUtils.provideCouponFragmentViewModel(
                 requireActivity().getApplication(),
                 getContext().getString(R.string.view_model_test))).get(CountryViewModel.class);
-
+        //一般寫法
 //        m_viewModel = new ViewModelProvider(getActivity(),
 //                new ViewModelProvider.AndroidViewModelFactory(requireActivity().getApplication())).get(CountryViewModel.class);
 

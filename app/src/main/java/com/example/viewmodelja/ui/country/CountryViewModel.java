@@ -17,7 +17,7 @@ public class CountryViewModel extends BaseViewModel {
     public CountryViewModel(@NonNull Application application, String strTestInput) {
         super(application);
         //範例：如何在ViewModel constructor 時傳參數進來
-        LogUtil.log("初始送數值:"+strTestInput);
+        LogUtil.log("初始送數值:" + strTestInput);
         initModel();
     }
 
@@ -43,7 +43,7 @@ public class CountryViewModel extends BaseViewModel {
         private final Application m_application;
         private final String m_strTestInput;
 
-        public Factory(Application application,String strTestInput) {
+        public Factory(Application application, String strTestInput) {
             m_application = application;
             m_strTestInput = strTestInput;
         }
