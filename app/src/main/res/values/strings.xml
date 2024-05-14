@@ -28,4 +28,5 @@
     <string name="country_search_taipei">台北 taipei</string>
     <string name="country_search_tokyo">東京 tokyo</string>
 
+    <string name="view_model_test">MVVM測試文字</string>
 </resources>
