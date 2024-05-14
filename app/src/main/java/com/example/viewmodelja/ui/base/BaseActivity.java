@@ -268,7 +268,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     }
 
     public void addFragment(BaseFragment fragment) {
-        addFragment(fragment);
+        m_fragmentHelper.addFragment(fragment);
     }
 
     public void popFragment() {

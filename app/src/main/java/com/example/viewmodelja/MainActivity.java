@@ -10,6 +10,7 @@ import com.example.viewmodelja.databinding.ActivityMainBinding;
 import com.example.viewmodelja.manager.LoginManager;
 import com.example.viewmodelja.ui.base.BaseActivity;
 import com.example.viewmodelja.ui.base.BaseActivityViewModel;
+import com.example.viewmodelja.ui.country.CountryActivity;
 import com.example.viewmodelja.ui.login.LoginActivity;
 
 public class MainActivity extends BaseActivity {
@@ -35,6 +36,7 @@ public class MainActivity extends BaseActivity {
     protected void initLayout() {
         m_viewBinding.btnLogin.setOnClickListener(this);
         m_viewBinding.btnLogout.setOnClickListener(this);
+        m_viewBinding.btnCountry.setOnClickListener(this);
         updateLoginState();
     }
 
@@ -49,6 +51,10 @@ public class MainActivity extends BaseActivity {
         } else if (iViewId == R.id.btnLogout) {
             LoginManager.getInstance().logout();
             updateLoginState();
+        } else if (iViewId == R.id.btnCountry){
+            Intent intent = new Intent(MainActivity.this, CountryActivity.class);
+
+            startActivity(intent);
         }
     }
 

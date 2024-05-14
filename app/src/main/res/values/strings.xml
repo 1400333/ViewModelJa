@@ -15,6 +15,7 @@
 
     <string name="main_login">登入</string>
     <string name="main_logout">登出</string>
+    <string name="main_country_search">Country Search 範例</string>
 
     <string name="login_login">登入</string>
     <string name="login_account">帳號</string>
@@ -22,5 +23,9 @@
     <string name="login_pwd">密碼</string>
     <string name="login_pwd_hint">請輸入密碼</string>
     <string name="login_login_success">登入成功</string>
+
+    <string name="country_search">搜尋</string>
+    <string name="country_search_taipei">台北 taipei</string>
+    <string name="country_search_tokyo">東京 tokyo</string>
 
 </resources>

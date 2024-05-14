@@ -13,10 +13,11 @@ import com.example.viewmodelja.api.UrlUtil;
 import com.example.viewmodelja.data.LoginRespInfo;
 import com.example.viewmodelja.manager.LoginManager;
 import com.example.viewmodelja.ui.base.BaseActivityViewModel;
+import com.example.viewmodelja.ui.base.BaseViewModel;
 
 import org.json.JSONObject;
 
-public class LoginViewModel extends BaseActivityViewModel {
+public class LoginViewModel extends BaseViewModel {
     private MutableLiveData<String> m_liveDataAccount = new MutableLiveData<>("");
     private MutableLiveData<String> m_liveDataPwd = new MutableLiveData<>("");
     private MutableLiveData<Boolean> m_liveLoginCompleted = new MutableLiveData<>(false);

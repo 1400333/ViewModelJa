@@ -25,6 +25,8 @@
         </activity>
 
         <activity android:name=".ui.login.LoginActivity"/>
+        <activity android:name=".ui.country.CountryActivity"/>
+
     </application>
 
 </manifest>

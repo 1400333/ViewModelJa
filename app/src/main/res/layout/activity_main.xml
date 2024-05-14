@@ -27,4 +27,11 @@
         android:textSize="@dimen/textsize_18sp"
         android:visibility="gone" />
 
+    <Button
+        android:id="@+id/btnCountry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/main_country_search"
+        android:textSize="@dimen/textsize_18sp" />
+
 </LinearLayout>
