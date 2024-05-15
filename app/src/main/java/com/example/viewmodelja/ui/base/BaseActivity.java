@@ -167,9 +167,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
             }
 
             if (bDoFinish) {
-                if (MainActivity.class.isInstance(this) == true) {
-                    m_baseViewModel.setDoUninitManager(false);
-                }
                 finish();
             }
         }

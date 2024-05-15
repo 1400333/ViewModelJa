@@ -41,11 +41,8 @@ public class BaseActivityViewModel extends BaseViewModel {
         }
     }
 
-    public void setDoUninitManager(boolean bUninitManager) {
-        m_bUninitManager = bUninitManager;
-    }
-
     public void uninitManager() {
+        m_bUninitManager = false;
         LoginManager.UnInit();
         CommonDataManager.UnInit();
     }
