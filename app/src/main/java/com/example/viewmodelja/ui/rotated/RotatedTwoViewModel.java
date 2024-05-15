@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 
 public class RotatedTwoViewModel extends AndroidViewModel {
     private MutableLiveData<String> m_liveTestData = new MutableLiveData<>();
+
     public RotatedTwoViewModel(@NonNull Application application) {
         super(application);
     }
