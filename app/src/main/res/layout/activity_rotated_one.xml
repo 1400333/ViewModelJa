@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding_9dp">
+    <TextView
+        android:id="@+id/tvTestTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="測試資料："
+        android:textSize="@dimen/textsize_18sp" />
+
+    <TextView
+        android:id="@+id/tvTestData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/btnSetData"
+        android:layout_toRightOf="@+id/tvTestTitle"
+        android:textSize="@dimen/textsize_18sp" />
+
+    <Button
+        android:id="@+id/btnSetData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="@dimen/padding_9dp"
+        android:text="放入資料" />
+</RelativeLayout>

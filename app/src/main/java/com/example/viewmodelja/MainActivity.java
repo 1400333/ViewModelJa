@@ -12,6 +12,8 @@ import com.example.viewmodelja.ui.base.BaseActivity;
 import com.example.viewmodelja.ui.base.BaseActivityViewModel;
 import com.example.viewmodelja.ui.country.CountryActivity;
 import com.example.viewmodelja.ui.login.LoginActivity;
+import com.example.viewmodelja.ui.rotated.RotatedOneActivity;
+import com.example.viewmodelja.ui.rotated.RotatedTwoActivity;
 
 public class MainActivity extends BaseActivity {
     private ActivityMainBinding m_viewBinding = null;
@@ -37,6 +39,8 @@ public class MainActivity extends BaseActivity {
         m_viewBinding.btnLogin.setOnClickListener(this);
         m_viewBinding.btnLogout.setOnClickListener(this);
         m_viewBinding.btnCountry.setOnClickListener(this);
+        m_viewBinding.btnRotatedOne.setOnClickListener(this);
+        m_viewBinding.btnRotatedTwo.setOnClickListener(this);
         updateLoginState();
     }
 
@@ -51,8 +55,16 @@ public class MainActivity extends BaseActivity {
         } else if (iViewId == R.id.btnLogout) {
             LoginManager.getInstance().logout();
             updateLoginState();
-        } else if (iViewId == R.id.btnCountry){
+        } else if (iViewId == R.id.btnCountry) {
             Intent intent = new Intent(MainActivity.this, CountryActivity.class);
+
+            startActivity(intent);
+        } else if (iViewId == R.id.btnRotatedOne){
+            Intent intent = new Intent(MainActivity.this, RotatedOneActivity.class);
+
+            startActivity(intent);
+        } else if (iViewId == R.id.btnRotatedTwo){
+            Intent intent = new Intent(MainActivity.this, RotatedTwoActivity.class);
 
             startActivity(intent);
         }

@@ -16,6 +16,8 @@
     <string name="main_login">登入</string>
     <string name="main_logout">登出</string>
     <string name="main_country_search">Country Search 範例</string>
+    <string name="main_rotated_one">翻轉(未MVVM)</string>
+    <string name="main_rotated_two">翻轉(使用MVVM)</string>
 
     <string name="login_login">登入</string>
     <string name="login_account">帳號</string>

@@ -26,6 +26,8 @@
 
         <activity android:name=".ui.login.LoginActivity"/>
         <activity android:name=".ui.country.CountryActivity"/>
+        <activity android:name=".ui.rotated.RotatedOneActivity"/>
+        <activity android:name=".ui.rotated.RotatedTwoActivity"/>
 
     </application>
 
