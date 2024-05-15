@@ -3,15 +3,14 @@ package com.example.viewmodelja.ui.country;
 import android.app.Application;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
-
-import com.example.viewmodelja.ui.base.BaseViewModel;
 import com.example.viewmodelja.util.LogUtil;
 
-public class CountryViewModel extends BaseViewModel {
+public class CountryViewModel extends AndroidViewModel {
     private MutableLiveData<String> m_liveSelName = new MutableLiveData<>();
 
     public CountryViewModel(@NonNull Application application, String strTestInput) {

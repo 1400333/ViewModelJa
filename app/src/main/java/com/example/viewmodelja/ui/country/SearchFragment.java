@@ -42,9 +42,6 @@ public class SearchFragment extends BaseFragment {
         m_viewModel = new ViewModelProvider(getActivity(),
                 new ViewModelProvider.AndroidViewModelFactory(requireActivity().getApplication())).get(CountryViewModel.class);
 
-
-        getViewLifecycleOwner().getLifecycle().addObserver(m_viewModel);
-
     }
 
     @Override
