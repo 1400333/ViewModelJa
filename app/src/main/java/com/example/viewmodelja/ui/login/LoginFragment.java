@@ -43,6 +43,7 @@ public class LoginFragment extends BaseFragment {
     }
 
     private void initViewModel() {
+        //觀察是否progressing中
         m_viewModel.isLoading().observe(getViewLifecycleOwner(),
                 bLoading -> {
                     if (bLoading) {
@@ -52,6 +53,7 @@ public class LoginFragment extends BaseFragment {
                     }
                 });
 
+        //觀察是否有錯誤訊息
         m_viewModel.getAlertMsg().observe(getViewLifecycleOwner(),
                 strMsg -> {
                     if (TextUtils.isEmpty(strMsg) == false) {
@@ -59,6 +61,7 @@ public class LoginFragment extends BaseFragment {
                     }
                 });
 
+        //觀察登入是否完成
         m_viewModel.isLoginCompleted().observe(getViewLifecycleOwner(),
                 bLoginCompleted -> {
                     if (bLoginCompleted) {
